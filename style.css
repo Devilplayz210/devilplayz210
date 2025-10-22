@@ -107,3 +107,20 @@ body.dark-mode #musicToggle {
 .carousel-btn:hover { background: rgba(255,0,0,1); }
 .carousel-btn.left { left: 10px; }
 .carousel-btn.right { right: 10px; }
+
+/* --- FORCE SHOW MUSIC BUTTON --- */
+#musicToggle {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  border: none;
+}
