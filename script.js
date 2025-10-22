@@ -55,3 +55,30 @@ btnRight.addEventListener('click', () => {
   position = Math.max(position - slideWidth, maxTranslate);
   track.style.transform = `translateX(${position}px)`;
 });
+
+// MUSIC CONTROL
+const music = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
+
+// Try to autoplay when the page loads
+window.addEventListener('load', () => {
+  const playPromise = music.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      console.log("Autoplay blocked by browser — waiting for user interaction.");
+    });
+  }
+});
+
+let isPlaying = false;
+
+musicToggle.addEventListener('click', () => {
+  if (isPlaying) {
+    music.pause();
+    musicToggle.textContent = '🎶'; // show play icon
+  } else {
+    music.play();
+    musicToggle.textContent = '⏸️'; // show pause icon
+  }
+  isPlaying = !isPlaying;
+});
